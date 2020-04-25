@@ -29,14 +29,26 @@ describe('Math class', function() {
 
     //it.only apenas 1 test
     //it.skip pular o teste    
-    it('Multiply two numbers', function() {
+    it.only('Multiply two numbers', function() {
         const math = new Math();
 
         const obj = {
             name: 'Marcello Albuquerque'
         };
 
-        expect(obj).to.have.property('name');
+        const obj2 = {
+            name: 'Marcello Albuquerque'
+        };
 
+        //const obj2 = obj;
+
+        expect(obj)
+        .to.have.property('name')
+        .equal('Marcello Albuquerque');
+
+        expect(math.multiply(value, 5))
+        .to.equal(0);
+
+        expect(obj).to.deep.equal(obj2);
     });
 });
