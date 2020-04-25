@@ -32,6 +32,11 @@ describe('Math class', function() {
     it('Multiply two numbers', function() {
         const math = new Math();
 
-        expect(math.multiply(value, 5)).to.equal(0);
+        const obj = {
+            name: 'Marcello Albuquerque'
+        };
+
+        expect(obj).to.have.property('name');
+
     });
 });
