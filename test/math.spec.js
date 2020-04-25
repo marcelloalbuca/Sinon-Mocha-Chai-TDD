@@ -63,8 +63,12 @@ describe('Math class', function() {
         const math = new Math();
         math.printSum(req, res, 5, 5);
 
+        //primeiro argumento
         expect(res.load.args[0][0]).to.equal('index');
 
-        //expect(res.load.calledOnce).to.be.true;
+        //segundo argumento
+        expect(res.load.args[0][1]).to.equal(10);
+
+        expect(res.load.calledOnce).to.be.true;
     });
 });
