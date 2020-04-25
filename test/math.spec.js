@@ -57,11 +57,18 @@ describe('Math class', function() {
         
         const req = {};
         const res = {
-            load: sinon.spy()
+            load: function load() {
+                console.log('Called!');
+            }
         };
+
+        //sinon.stub
+        sinon.spy(res, 'load');
 
         const math = new Math();
         math.printSum(req, res, 5, 5);
+
+       // res.restore();
 
         //primeiro argumento
         expect(res.load.args[0][0]).to.equal('index');
