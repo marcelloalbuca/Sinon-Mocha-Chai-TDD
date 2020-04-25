@@ -1,6 +1,7 @@
 const assert = require('assert');
 const Math = require('../src/math.js');
 const expect = require('chai').expect;
+const sinon = require('sinon');
 
 let value = 0;
 
@@ -29,7 +30,7 @@ describe('Math class', function() {
 
     //it.only apenas 1 test
     //it.skip pular o teste    
-    it.only('Multiply two numbers', function() {
+    it('Multiply two numbers', function() {
         const math = new Math();
 
         const obj = {
@@ -50,5 +51,18 @@ describe('Math class', function() {
         .to.equal(0);
 
         expect(obj).to.deep.equal(obj2);
+    });
+
+    it.only('Calls req with sun and index values', function() {
+        
+        const req = {};
+        const res = {
+            load: sinon.spy()
+        };
+
+        const math = new Math();
+        math.printSum(req, res, 5, 5);
+
+        expect(res.load.calledOnce).to.be.true;
     });
 });
