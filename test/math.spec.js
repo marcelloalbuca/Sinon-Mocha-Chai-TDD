@@ -32,6 +32,6 @@ describe('Math class', function() {
     it('Multiply two numbers', function() {
         const math = new Math();
 
-        assert.equal(math.multiply(value, 5), 0);
+        expect(math.multiply(value, 5)).to.equal(0);
     });
 });
